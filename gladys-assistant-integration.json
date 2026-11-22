@@ -1,0 +1,1166 @@
+{
+  "manifest_version": 1,
+  "type": "device",
+  "name": "Remeha Home",
+  "description": {
+    "en": "Remeha Home heating: zones, hot water, boost, holiday, water pressure, energy, scenes and widgets.",
+    "fr": "Chauffage Remeha Home : zones, eau chaude, boost, vacances, pression, énergie, scènes, widgets.",
+    "de": "Remeha-Home-Heizung: Zonen, Warmwasser, Boost, Urlaub, Druck, Energie, Szenen, Widgets.",
+    "es": "Calefacción Remeha Home: zonas, agua caliente, boost, vacaciones, presión, energía, escenas."
+  },
+  "version": "0.1.0",
+  "docker_image": "ghcr.io/william-de71/gladys-remeha-home:0.1.0",
+  "gladys_version": ">=5.3.0",
+  "categories": ["climate", "energy"],
+  "keywords": [
+    "remeha",
+    "baxi",
+    "de dietrich",
+    "brötje",
+    "bdr thermea",
+    "etwist",
+    "chaudière",
+    "pompe à chaleur",
+    "boiler",
+    "heat pump"
+  ],
+  "cover_image": "https://raw.githubusercontent.com/William-De71/gladys-remeha-home/main/cover.jpg",
+  "transports": ["cloud"],
+  "config_schema": [
+    {
+      "key": "intro",
+      "type": "section",
+      "label": {
+        "en": "Remeha Home",
+        "fr": "Remeha Home",
+        "de": "Remeha Home",
+        "es": "Remeha Home"
+      },
+      "description": {
+        "en": "How to connect:\n1. Check that your thermostat (eTwist, Smart Thermostat…) works in the Remeha Home app.\n2. Enter below the e-mail and the password of the Remeha Home app (Baxi, De Dietrich and Brötje accounts of the same cloud may work too).\n3. In the Discover tab, add your zones, the hot water and the appliance.\nThe integration uses the service behind the Remeha Home app, which BDR Thermea does not document: it may change without notice. Commands go through the Remeha cloud, and a change made in the app reaches Gladys at the next reading.",
+        "fr": "Pour se connecter :\n1. Vérifiez que votre thermostat (eTwist, Smart Thermostat…) fonctionne dans l’application Remeha Home.\n2. Saisissez ci-dessous l’e-mail et le mot de passe de l’application Remeha Home (les comptes Baxi, De Dietrich et Brötje du même cloud peuvent aussi fonctionner).\n3. Dans l’onglet Découverte, ajoutez vos zones, l’eau chaude et le générateur.\nL’intégration utilise le service de l’application Remeha Home, que BDR Thermea ne documente pas : il peut changer sans préavis. Les commandes passent par le cloud Remeha, et un changement fait dans l’application atteint Gladys au relevé suivant.",
+        "de": "So verbinden Sie sich:\n1. Prüfen Sie, dass Ihr Thermostat (eTwist, Smart Thermostat…) in der Remeha-Home-App funktioniert.\n2. Geben Sie unten E-Mail und Passwort der Remeha-Home-App ein (Konten von Baxi, De Dietrich und Brötje in derselben Cloud können ebenfalls funktionieren).\n3. Fügen Sie im Reiter Entdecken Ihre Zonen, das Warmwasser und das Gerät hinzu.\nDie Integration nutzt den Dienst hinter der Remeha-Home-App, den BDR Thermea nicht dokumentiert: Er kann sich ohne Vorankündigung ändern. Befehle laufen über die Remeha-Cloud, und eine Änderung in der App erreicht Gladys bei der nächsten Abfrage.",
+        "es": "Cómo conectarse:\n1. Compruebe que su termostato (eTwist, Smart Thermostat…) funciona en la app Remeha Home.\n2. Introduzca abajo el correo y la contraseña de la app Remeha Home (las cuentas Baxi, De Dietrich y Brötje de la misma nube también pueden funcionar).\n3. En la pestaña Descubrir, añada sus zonas, el agua caliente y el equipo.\nLa integración usa el servicio de la app Remeha Home, que BDR Thermea no documenta: puede cambiar sin previo aviso. Las órdenes pasan por la nube de Remeha, y un cambio hecho en la app llega a Gladys en la siguiente lectura."
+      },
+      "links": [
+        {
+          "url": "https://github.com/William-De71/gladys-remeha-home/blob/main/docs/fr.md",
+          "label": {
+            "en": "Documentation (French)",
+            "fr": "Documentation",
+            "de": "Dokumentation (Französisch)",
+            "es": "Documentación (francés)"
+          }
+        },
+        {
+          "url": "https://github.com/William-De71/gladys-remeha-home/blob/main/docs/en.md",
+          "label": {
+            "en": "Documentation",
+            "fr": "Documentation (anglais)",
+            "de": "Dokumentation (Englisch)",
+            "es": "Documentación (inglés)"
+          }
+        }
+      ]
+    },
+    {
+      "key": "email",
+      "type": "string",
+      "required": true,
+      "label": {
+        "en": "E-mail",
+        "fr": "E-mail",
+        "de": "E-Mail",
+        "es": "Correo electrónico"
+      },
+      "description": {
+        "en": "The e-mail of your Remeha Home account.",
+        "fr": "L’e-mail de votre compte Remeha Home.",
+        "de": "Die E-Mail Ihres Remeha-Home-Kontos.",
+        "es": "El correo de su cuenta Remeha Home."
+      },
+      "placeholder": {
+        "en": "name@example.com",
+        "fr": "name@example.com",
+        "de": "name@example.com",
+        "es": "name@example.com"
+      }
+    },
+    {
+      "key": "password",
+      "type": "secret",
+      "required": true,
+      "label": {
+        "en": "Password",
+        "fr": "Mot de passe",
+        "de": "Passwort",
+        "es": "Contraseña"
+      },
+      "description": {
+        "en": "The password of your Remeha Home account. Sent to Remeha only, kept in memory, never shown again.",
+        "fr": "Le mot de passe de votre compte Remeha Home. Envoyé à Remeha uniquement, gardé en mémoire, jamais réaffiché.",
+        "de": "Das Passwort Ihres Remeha-Home-Kontos. Wird nur an Remeha gesendet, im Speicher gehalten und nie wieder angezeigt.",
+        "es": "La contraseña de su cuenta Remeha Home. Solo se envía a Remeha, se guarda en memoria y nunca se vuelve a mostrar."
+      },
+      "placeholder": {
+        "en": "Password",
+        "fr": "Mot de passe",
+        "de": "Passwort",
+        "es": "Contraseña"
+      }
+    },
+    {
+      "key": "refresh_minutes",
+      "type": "select",
+      "label": {
+        "en": "Reading interval",
+        "fr": "Intervalle de relevé",
+        "de": "Abfrageintervall",
+        "es": "Intervalo de lectura"
+      },
+      "options": [
+        {
+          "value": "1",
+          "label": {
+            "en": "Every 1 min",
+            "fr": "Toutes les 1 min",
+            "de": "Alle 1 Min.",
+            "es": "Cada 1 min"
+          }
+        },
+        {
+          "value": "2",
+          "label": {
+            "en": "Every 2 min",
+            "fr": "Toutes les 2 min",
+            "de": "Alle 2 Min.",
+            "es": "Cada 2 min"
+          }
+        },
+        {
+          "value": "5",
+          "label": {
+            "en": "Every 5 min",
+            "fr": "Toutes les 5 min",
+            "de": "Alle 5 Min.",
+            "es": "Cada 5 min"
+          }
+        },
+        {
+          "value": "10",
+          "label": {
+            "en": "Every 10 min",
+            "fr": "Toutes les 10 min",
+            "de": "Alle 10 Min.",
+            "es": "Cada 10 min"
+          }
+        }
+      ],
+      "default": "2",
+      "description": {
+        "en": "One request reads every zone. The energy is read every 15 minutes.",
+        "fr": "Une seule requête relève toutes les zones. L’énergie est relevée toutes les 15 minutes.",
+        "de": "Eine Anfrage liest alle Zonen. Die Energie wird alle 15 Minuten gelesen.",
+        "es": "Una sola petición lee todas las zonas. La energía se lee cada 15 minutos."
+      }
+    },
+    {
+      "key": "language",
+      "type": "select",
+      "label": {
+        "en": "Language of the device texts",
+        "fr": "Langue des textes des appareils",
+        "de": "Sprache der Gerätetexte",
+        "es": "Idioma de los textos de los dispositivos"
+      },
+      "options": [
+        {
+          "value": "auto",
+          "label": {
+            "en": "Automatic",
+            "fr": "Automatique",
+            "de": "Automatisch",
+            "es": "Automático"
+          }
+        },
+        {
+          "value": "en",
+          "label": {
+            "en": "English",
+            "fr": "Anglais",
+            "de": "Englisch",
+            "es": "Inglés"
+          }
+        },
+        {
+          "value": "fr",
+          "label": {
+            "en": "French",
+            "fr": "Français",
+            "de": "Französisch",
+            "es": "Francés"
+          }
+        },
+        {
+          "value": "de",
+          "label": {
+            "en": "German",
+            "fr": "Allemand",
+            "de": "Deutsch",
+            "es": "Alemán"
+          }
+        },
+        {
+          "value": "es",
+          "label": {
+            "en": "Spanish",
+            "fr": "Espagnol",
+            "de": "Spanisch",
+            "es": "Español"
+          }
+        }
+      ],
+      "default": "auto",
+      "description": {
+        "en": "Names of the features and messages of the button below. Automatic: the language of the dashboard once a widget is shown.",
+        "fr": "Noms des fonctionnalités et messages du bouton ci-dessous. Automatique : la langue du tableau de bord dès qu’un widget est affiché.",
+        "de": "Namen der Funktionen und Meldungen der Schaltfläche unten. Automatisch: die Sprache des Dashboards, sobald ein Widget angezeigt wird.",
+        "es": "Nombres de las funciones y mensajes del botón de abajo. Automático: el idioma del panel en cuanto se muestra un widget."
+      }
+    }
+  ],
+  "actions": [
+    {
+      "key": "test_connection",
+      "timeout_seconds": 60,
+      "label": {
+        "en": "Test the connection",
+        "fr": "Tester la connexion",
+        "de": "Verbindung testen",
+        "es": "Probar la conexión"
+      },
+      "description": {
+        "en": "Signs in to Remeha Home now and lists the zones, the hot water and the appliances found.",
+        "fr": "Se connecte maintenant à Remeha Home et liste les zones, l’eau chaude et les générateurs trouvés.",
+        "de": "Meldet sich jetzt bei Remeha Home an und listet die gefundenen Zonen, das Warmwasser und die Geräte auf.",
+        "es": "Inicia sesión ahora en Remeha Home y lista las zonas, el agua caliente y los equipos encontrados."
+      }
+    }
+  ],
+  "widgets": [
+    {
+      "key": "zones",
+      "icon": "thermometer",
+      "label": {
+        "en": "Remeha zones",
+        "fr": "Zones Remeha",
+        "de": "Remeha-Zonen",
+        "es": "Zonas Remeha"
+      },
+      "description": {
+        "en": "Zones and hot water: temperature, setpoint, mode, next switch; back to schedule, boost.",
+        "fr": "Zones et eau chaude : température, consigne, mode, étape suivante ; retour au programme, boost.",
+        "de": "Zonen und Warmwasser: Temperatur, Sollwert, Modus, nächster Schaltpunkt; Programm, Boost.",
+        "es": "Zonas y agua caliente: temperatura, consigna, modo, próximo cambio; volver al programa, boost."
+      },
+      "settings": [
+        {
+          "key": "devices",
+          "type": "multi_select",
+          "source": "devices",
+          "label": {
+            "en": "Zones",
+            "fr": "Zones",
+            "de": "Zonen",
+            "es": "Zonas"
+          },
+          "description": {
+            "en": "Empty: every zone and the hot water.",
+            "fr": "Vide : toutes les zones et l’eau chaude.",
+            "de": "Leer: alle Zonen und das Warmwasser.",
+            "es": "Vacío: todas las zonas y el agua caliente."
+          }
+        }
+      ],
+      "action_timeout_seconds": 90
+    },
+    {
+      "key": "energy",
+      "icon": "zap",
+      "label": {
+        "en": "Remeha energy",
+        "fr": "Énergie Remeha",
+        "de": "Remeha-Energie",
+        "es": "Energía Remeha"
+      },
+      "description": {
+        "en": "Energy estimated by Remeha: today, yesterday, the last 7 days by use.",
+        "fr": "Énergie estimée par Remeha : aujourd’hui, hier, les 7 derniers jours par usage.",
+        "de": "Von Remeha geschätzte Energie: heute, gestern, die letzten 7 Tage nach Nutzung.",
+        "es": "Energía estimada por Remeha: hoy, ayer, los últimos 7 días por uso."
+      },
+      "settings": [
+        {
+          "key": "devices",
+          "type": "multi_select",
+          "source": "devices",
+          "label": {
+            "en": "Appliances",
+            "fr": "Générateurs",
+            "de": "Geräte",
+            "es": "Equipos"
+          },
+          "description": {
+            "en": "Empty: every appliance.",
+            "fr": "Vide : tous les générateurs.",
+            "de": "Leer: alle Geräte.",
+            "es": "Vacío: todos los equipos."
+          }
+        }
+      ],
+      "action_timeout_seconds": 60
+    },
+    {
+      "key": "status",
+      "icon": "activity",
+      "label": {
+        "en": "Remeha appliance",
+        "fr": "Générateur Remeha",
+        "de": "Remeha-Gerät",
+        "es": "Equipo Remeha"
+      },
+      "description": {
+        "en": "Water pressure, outdoor temperature, connection, status and holiday of the appliance.",
+        "fr": "Pression d’eau, température extérieure, connexion, état et vacances du générateur.",
+        "de": "Wasserdruck, Außentemperatur, Verbindung, Status und Urlaub des Geräts.",
+        "es": "Presión del agua, temperatura exterior, conexión, estado y vacaciones del equipo."
+      },
+      "settings": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Appliance",
+            "fr": "Générateur",
+            "de": "Gerät",
+            "es": "Equipo"
+          },
+          "description": {
+            "en": "Empty: the first appliance.",
+            "fr": "Vide : le premier générateur.",
+            "de": "Leer: das erste Gerät.",
+            "es": "Vacío: el primer equipo."
+          }
+        }
+      ],
+      "action_timeout_seconds": 60
+    }
+  ],
+  "scene_triggers": [
+    {
+      "key": "appliance_fault",
+      "label": {
+        "en": "The appliance reports a fault",
+        "fr": "Le générateur signale un défaut",
+        "de": "Das Gerät meldet eine Störung",
+        "es": "El equipo indica una avería"
+      },
+      "description": {
+        "en": "The status Remeha reports leaves “Running” (lockout, blocking, error code), seen at the next reading.",
+        "fr": "L’état signalé par Remeha quitte « Running » (verrouillage, blocage, code d’erreur), vu au relevé suivant.",
+        "de": "Der von Remeha gemeldete Status verlässt „Running“ (Verriegelung, Blockierung, Fehlercode), sichtbar bei der nächsten Abfrage.",
+        "es": "El estado indicado por Remeha deja «Running» (bloqueo, código de error), visto en la siguiente lectura."
+      },
+      "fields": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Appliance",
+            "fr": "Générateur",
+            "de": "Gerät",
+            "es": "Equipo"
+          },
+          "description": {
+            "en": "Empty: every appliance.",
+            "fr": "Vide : tous les générateurs.",
+            "de": "Leer: alle Geräte.",
+            "es": "Vacío: todos los equipos."
+          }
+        }
+      ],
+      "variables": [
+        {
+          "key": "device",
+          "type": "string",
+          "label": {
+            "en": "Appliance (external id)",
+            "fr": "Générateur (identifiant externe)",
+            "de": "Gerät (externe ID)",
+            "es": "Equipo (id externo)"
+          }
+        },
+        {
+          "key": "device_name",
+          "type": "string",
+          "label": {
+            "en": "Appliance name",
+            "fr": "Nom du générateur",
+            "de": "Gerätename",
+            "es": "Nombre del equipo"
+          }
+        },
+        {
+          "key": "status",
+          "type": "string",
+          "label": {
+            "en": "Status reported by Remeha",
+            "fr": "État signalé par Remeha",
+            "de": "Von Remeha gemeldeter Status",
+            "es": "Estado indicado por Remeha"
+          }
+        },
+        {
+          "key": "previous_status",
+          "type": "string",
+          "label": {
+            "en": "Previous status",
+            "fr": "État précédent",
+            "de": "Vorheriger Status",
+            "es": "Estado anterior"
+          }
+        }
+      ]
+    },
+    {
+      "key": "appliance_recovered",
+      "label": {
+        "en": "The appliance is back to normal",
+        "fr": "Le générateur revient à la normale",
+        "de": "Das Gerät ist wieder in Ordnung",
+        "es": "El equipo vuelve a la normalidad"
+      },
+      "description": {
+        "en": "The status Remeha reports is “Running” again.",
+        "fr": "L’état signalé par Remeha est de nouveau « Running ».",
+        "de": "Der von Remeha gemeldete Status ist wieder „Running“.",
+        "es": "El estado indicado por Remeha vuelve a ser «Running»."
+      },
+      "fields": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Appliance",
+            "fr": "Générateur",
+            "de": "Gerät",
+            "es": "Equipo"
+          },
+          "description": {
+            "en": "Empty: every appliance.",
+            "fr": "Vide : tous les générateurs.",
+            "de": "Leer: alle Geräte.",
+            "es": "Vacío: todos los equipos."
+          }
+        }
+      ],
+      "variables": [
+        {
+          "key": "device",
+          "type": "string",
+          "label": {
+            "en": "Appliance (external id)",
+            "fr": "Générateur (identifiant externe)",
+            "de": "Gerät (externe ID)",
+            "es": "Equipo (id externo)"
+          }
+        },
+        {
+          "key": "device_name",
+          "type": "string",
+          "label": {
+            "en": "Appliance name",
+            "fr": "Nom du générateur",
+            "de": "Gerätename",
+            "es": "Nombre del equipo"
+          }
+        },
+        {
+          "key": "status",
+          "type": "string",
+          "label": {
+            "en": "Status reported by Remeha",
+            "fr": "État signalé par Remeha",
+            "de": "Von Remeha gemeldeter Status",
+            "es": "Estado indicado por Remeha"
+          }
+        },
+        {
+          "key": "previous_status",
+          "type": "string",
+          "label": {
+            "en": "Previous status",
+            "fr": "État précédent",
+            "de": "Vorheriger Status",
+            "es": "Estado anterior"
+          }
+        }
+      ]
+    },
+    {
+      "key": "water_pressure_low",
+      "label": {
+        "en": "The water pressure gets too low",
+        "fr": "La pression d’eau devient trop basse",
+        "de": "Der Wasserdruck wird zu niedrig",
+        "es": "La presión del agua es demasiado baja"
+      },
+      "description": {
+        "en": "Remeha no longer considers the pressure of the heating circuit as correct.",
+        "fr": "Remeha ne considère plus la pression du circuit de chauffage comme correcte.",
+        "de": "Remeha hält den Druck des Heizkreises nicht mehr für korrekt.",
+        "es": "Remeha ya no considera correcta la presión del circuito de calefacción."
+      },
+      "fields": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Appliance",
+            "fr": "Générateur",
+            "de": "Gerät",
+            "es": "Equipo"
+          },
+          "description": {
+            "en": "Empty: every appliance.",
+            "fr": "Vide : tous les générateurs.",
+            "de": "Leer: alle Geräte.",
+            "es": "Vacío: todos los equipos."
+          }
+        }
+      ],
+      "variables": [
+        {
+          "key": "device",
+          "type": "string",
+          "label": {
+            "en": "Appliance (external id)",
+            "fr": "Générateur (identifiant externe)",
+            "de": "Gerät (externe ID)",
+            "es": "Equipo (id externo)"
+          }
+        },
+        {
+          "key": "device_name",
+          "type": "string",
+          "label": {
+            "en": "Appliance name",
+            "fr": "Nom du générateur",
+            "de": "Gerätename",
+            "es": "Nombre del equipo"
+          }
+        },
+        {
+          "key": "pressure",
+          "type": "number",
+          "label": {
+            "en": "Water pressure (bar)",
+            "fr": "Pression d’eau (bar)",
+            "de": "Wasserdruck (bar)",
+            "es": "Presión del agua (bar)"
+          }
+        }
+      ]
+    },
+    {
+      "key": "connection_changed",
+      "label": {
+        "en": "The appliance goes offline or back online",
+        "fr": "Le générateur se déconnecte ou se reconnecte",
+        "de": "Das Gerät geht offline oder wieder online",
+        "es": "El equipo se desconecta o se reconecta"
+      },
+      "description": {
+        "en": "The connection between the appliance (its gateway) and the Remeha cloud, as Remeha reports it.",
+        "fr": "La connexion entre le générateur (sa passerelle) et le cloud Remeha, telle que Remeha la signale.",
+        "de": "Die Verbindung zwischen dem Gerät (seinem Gateway) und der Remeha-Cloud, wie Remeha sie meldet.",
+        "es": "La conexión entre el equipo (su pasarela) y la nube de Remeha, tal como la indica Remeha."
+      },
+      "fields": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Appliance",
+            "fr": "Générateur",
+            "de": "Gerät",
+            "es": "Equipo"
+          },
+          "description": {
+            "en": "Empty: every appliance.",
+            "fr": "Vide : tous les générateurs.",
+            "de": "Leer: alle Geräte.",
+            "es": "Vacío: todos los equipos."
+          }
+        },
+        {
+          "key": "state",
+          "type": "select",
+          "label": {
+            "en": "New state",
+            "fr": "Nouvel état",
+            "de": "Neuer Zustand",
+            "es": "Nuevo estado"
+          },
+          "description": {
+            "en": "Empty: both.",
+            "fr": "Vide : les deux.",
+            "de": "Leer: beides.",
+            "es": "Vacío: ambos."
+          },
+          "options": [
+            {
+              "value": "offline",
+              "label": {
+                "en": "Offline",
+                "fr": "Hors ligne",
+                "de": "Offline",
+                "es": "Sin conexión"
+              }
+            },
+            {
+              "value": "online",
+              "label": {
+                "en": "Online",
+                "fr": "En ligne",
+                "de": "Online",
+                "es": "En línea"
+              }
+            }
+          ]
+        }
+      ],
+      "variables": [
+        {
+          "key": "device",
+          "type": "string",
+          "label": {
+            "en": "Appliance (external id)",
+            "fr": "Générateur (identifiant externe)",
+            "de": "Gerät (externe ID)",
+            "es": "Equipo (id externo)"
+          }
+        },
+        {
+          "key": "device_name",
+          "type": "string",
+          "label": {
+            "en": "Appliance name",
+            "fr": "Nom du générateur",
+            "de": "Gerätename",
+            "es": "Nombre del equipo"
+          }
+        },
+        {
+          "key": "state",
+          "type": "string",
+          "label": {
+            "en": "State (online, offline)",
+            "fr": "État (online, offline)",
+            "de": "Zustand (online, offline)",
+            "es": "Estado (online, offline)"
+          }
+        }
+      ]
+    },
+    {
+      "key": "holiday_changed",
+      "label": {
+        "en": "A holiday starts or ends",
+        "fr": "Les vacances commencent ou se terminent",
+        "de": "Der Urlaub beginnt oder endet",
+        "es": "Empiezan o terminan las vacaciones"
+      },
+      "description": {
+        "en": "The holiday mode of the appliance, set in the Remeha Home app (never by the action of this integration).",
+        "fr": "Le mode vacances du générateur, réglé dans l’application Remeha Home (jamais par l’action de cette intégration).",
+        "de": "Der Urlaubsmodus des Geräts, in der Remeha-Home-App eingestellt (nie durch die Aktion dieser Integration).",
+        "es": "El modo vacaciones del equipo, ajustado en la app Remeha Home (nunca por la acción de esta integración)."
+      },
+      "fields": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Appliance",
+            "fr": "Générateur",
+            "de": "Gerät",
+            "es": "Equipo"
+          },
+          "description": {
+            "en": "Empty: every appliance.",
+            "fr": "Vide : tous les générateurs.",
+            "de": "Leer: alle Geräte.",
+            "es": "Vacío: todos los equipos."
+          }
+        },
+        {
+          "key": "state",
+          "type": "select",
+          "label": {
+            "en": "Event",
+            "fr": "Événement",
+            "de": "Ereignis",
+            "es": "Evento"
+          },
+          "description": {
+            "en": "Empty: both.",
+            "fr": "Vide : les deux.",
+            "de": "Leer: beides.",
+            "es": "Vacío: ambos."
+          },
+          "options": [
+            {
+              "value": "started",
+              "label": {
+                "en": "Holiday starts",
+                "fr": "Début des vacances",
+                "de": "Urlaubsbeginn",
+                "es": "Inicio de vacaciones"
+              }
+            },
+            {
+              "value": "ended",
+              "label": {
+                "en": "Holiday ends",
+                "fr": "Fin des vacances",
+                "de": "Urlaubsende",
+                "es": "Fin de vacaciones"
+              }
+            }
+          ]
+        }
+      ],
+      "variables": [
+        {
+          "key": "device",
+          "type": "string",
+          "label": {
+            "en": "Appliance (external id)",
+            "fr": "Générateur (identifiant externe)",
+            "de": "Gerät (externe ID)",
+            "es": "Equipo (id externo)"
+          }
+        },
+        {
+          "key": "device_name",
+          "type": "string",
+          "label": {
+            "en": "Appliance name",
+            "fr": "Nom du générateur",
+            "de": "Gerätename",
+            "es": "Nombre del equipo"
+          }
+        },
+        {
+          "key": "state",
+          "type": "string",
+          "label": {
+            "en": "Event (started, ended)",
+            "fr": "Événement (started, ended)",
+            "de": "Ereignis (started, ended)",
+            "es": "Evento (started, ended)"
+          }
+        },
+        {
+          "key": "end",
+          "type": "string",
+          "label": {
+            "en": "Day of return (YYYY-MM-DD)",
+            "fr": "Jour du retour (AAAA-MM-JJ)",
+            "de": "Rückkehrtag (JJJJ-MM-TT)",
+            "es": "Día de regreso (AAAA-MM-DD)"
+          }
+        }
+      ]
+    }
+  ],
+  "scene_actions": [
+    {
+      "key": "set_temporary",
+      "timeout_seconds": 60,
+      "label": {
+        "en": "Set a temporary temperature",
+        "fr": "Imposer une température temporaire",
+        "de": "Vorübergehende Temperatur setzen",
+        "es": "Fijar una temperatura temporal"
+      },
+      "description": {
+        "en": "A zone holds this temperature for a duration, or until the next switch of its schedule, then follows the schedule again.",
+        "fr": "Une zone tient cette température pendant une durée, ou jusqu’à la prochaine étape de son programme, puis reprend le programme.",
+        "de": "Eine Zone hält diese Temperatur für eine Dauer oder bis zum nächsten Schaltpunkt und folgt dann wieder dem Programm.",
+        "es": "Una zona mantiene esta temperatura durante un tiempo, o hasta el próximo cambio de su programa, y luego vuelve al programa."
+      },
+      "fields": [
+        {
+          "key": "zone",
+          "type": "select",
+          "source": "devices",
+          "required": true,
+          "label": {
+            "en": "Zone",
+            "fr": "Zone",
+            "de": "Zone",
+            "es": "Zona"
+          }
+        },
+        {
+          "key": "temperature",
+          "type": "number",
+          "required": true,
+          "min": 5,
+          "max": 30,
+          "default": 21,
+          "label": {
+            "en": "Temperature (°C)",
+            "fr": "Température (°C)",
+            "de": "Temperatur (°C)",
+            "es": "Temperatura (°C)"
+          },
+          "description": {
+            "en": "Within the bounds of the zone, by half degrees.",
+            "fr": "Dans les limites de la zone, par demi-degré.",
+            "de": "Innerhalb der Grenzen der Zone, in halben Grad.",
+            "es": "Dentro de los límites de la zona, por medios grados."
+          }
+        },
+        {
+          "key": "minutes",
+          "type": "number",
+          "min": 0,
+          "max": 10080,
+          "label": {
+            "en": "Duration (minutes)",
+            "fr": "Durée (minutes)",
+            "de": "Dauer (Minuten)",
+            "es": "Duración (minutos)"
+          },
+          "description": {
+            "en": "Empty or 0: until the next switch of the schedule. Some thermostats only know that.",
+            "fr": "Vide ou 0 : jusqu’à la prochaine étape du programme. Certains thermostats ne connaissent que cela.",
+            "de": "Leer oder 0: bis zum nächsten Schaltpunkt. Manche Thermostate kennen nur das.",
+            "es": "Vacío o 0: hasta el próximo cambio del programa. Algunos termostatos solo conocen eso."
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "key": "end",
+          "type": "string",
+          "label": {
+            "en": "End, local time (empty: next switch)",
+            "fr": "Fin, heure locale (vide : prochaine étape)",
+            "de": "Ende, Ortszeit (leer: nächster Schaltpunkt)",
+            "es": "Fin, hora local (vacío: próximo cambio)"
+          }
+        }
+      ]
+    },
+    {
+      "key": "set_clock_program",
+      "timeout_seconds": 90,
+      "label": {
+        "en": "Choose a clock program",
+        "fr": "Choisir un programme horaire",
+        "de": "Zeitprogramm wählen",
+        "es": "Elegir un programa horario"
+      },
+      "description": {
+        "en": "One of the three clock programs of the Remeha Home app; the zone follows it from now on.",
+        "fr": "L’un des trois programmes horaires de l’application Remeha Home ; la zone le suit dès maintenant.",
+        "de": "Eines der drei Zeitprogramme der Remeha-Home-App; die Zone folgt ihm ab sofort.",
+        "es": "Uno de los tres programas horarios de la app Remeha Home; la zona lo sigue desde ahora."
+      },
+      "fields": [
+        {
+          "key": "zone",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Zone",
+            "fr": "Zone",
+            "de": "Zone",
+            "es": "Zona"
+          },
+          "description": {
+            "en": "Empty: every zone.",
+            "fr": "Vide : toutes les zones.",
+            "de": "Leer: alle Zonen.",
+            "es": "Vacío: todas las zonas."
+          }
+        },
+        {
+          "key": "program",
+          "type": "select",
+          "required": true,
+          "default": "1",
+          "label": {
+            "en": "Clock program",
+            "fr": "Programme horaire",
+            "de": "Zeitprogramm",
+            "es": "Programa horario"
+          },
+          "options": [
+            {
+              "value": "1",
+              "label": {
+                "en": "Program 1",
+                "fr": "Programme 1",
+                "de": "Programm 1",
+                "es": "Programa 1"
+              }
+            },
+            {
+              "value": "2",
+              "label": {
+                "en": "Program 2",
+                "fr": "Programme 2",
+                "de": "Programm 2",
+                "es": "Programa 2"
+              }
+            },
+            {
+              "value": "3",
+              "label": {
+                "en": "Program 3",
+                "fr": "Programme 3",
+                "de": "Programm 3",
+                "es": "Programa 3"
+              }
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "key": "count",
+          "type": "number",
+          "label": {
+            "en": "Zones changed",
+            "fr": "Zones changées",
+            "de": "Geänderte Zonen",
+            "es": "Zonas cambiadas"
+          }
+        },
+        {
+          "key": "failed",
+          "type": "number",
+          "label": {
+            "en": "Zones refused",
+            "fr": "Zones refusées",
+            "de": "Abgelehnte Zonen",
+            "es": "Zonas rechazadas"
+          }
+        }
+      ]
+    },
+    {
+      "key": "set_holiday",
+      "timeout_seconds": 60,
+      "label": {
+        "en": "Set the holiday mode",
+        "fr": "Régler le mode vacances",
+        "de": "Urlaubsmodus einstellen",
+        "es": "Ajustar el modo vacaciones"
+      },
+      "description": {
+        "en": "From today for a number of days (frost protection, hot water in eco), or 0 to cancel. Remeha keeps whole days.",
+        "fr": "À partir d’aujourd’hui pour un nombre de jours (hors-gel, eau chaude en éco), ou 0 pour annuler. Remeha garde des jours entiers.",
+        "de": "Ab heute für eine Anzahl Tage (Frostschutz, Warmwasser im Eco), oder 0 zum Abbrechen. Remeha speichert ganze Tage.",
+        "es": "Desde hoy durante un número de días (antihielo, agua caliente en eco), o 0 para cancelar. Remeha guarda días enteros."
+      },
+      "fields": [
+        {
+          "key": "appliance",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Appliance",
+            "fr": "Générateur",
+            "de": "Gerät",
+            "es": "Equipo"
+          },
+          "description": {
+            "en": "Empty: every appliance.",
+            "fr": "Vide : tous les générateurs.",
+            "de": "Leer: alle Geräte.",
+            "es": "Vacío: todos los equipos."
+          }
+        },
+        {
+          "key": "days",
+          "type": "number",
+          "required": true,
+          "min": 0,
+          "max": 365,
+          "default": 7,
+          "label": {
+            "en": "Days",
+            "fr": "Jours",
+            "de": "Tage",
+            "es": "Días"
+          },
+          "description": {
+            "en": "The holiday ends at midnight of the day of return. 0: cancel the holiday.",
+            "fr": "Les vacances se terminent à minuit le jour du retour. 0 : annuler les vacances.",
+            "de": "Der Urlaub endet um Mitternacht des Rückkehrtags. 0: Urlaub abbrechen.",
+            "es": "Las vacaciones terminan a medianoche del día de regreso. 0: cancelar las vacaciones."
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "key": "count",
+          "type": "number",
+          "label": {
+            "en": "Appliances changed",
+            "fr": "Générateurs changés",
+            "de": "Geänderte Geräte",
+            "es": "Equipos cambiados"
+          }
+        },
+        {
+          "key": "until",
+          "type": "string",
+          "label": {
+            "en": "Day of return (empty: cancelled)",
+            "fr": "Jour du retour (vide : annulé)",
+            "de": "Rückkehrtag (leer: abgebrochen)",
+            "es": "Día de regreso (vacío: cancelado)"
+          }
+        }
+      ]
+    },
+    {
+      "key": "hot_water_boost",
+      "timeout_seconds": 60,
+      "label": {
+        "en": "Start a hot water boost",
+        "fr": "Lancer un boost d’eau chaude",
+        "de": "Warmwasser-Boost starten",
+        "es": "Iniciar un boost de agua caliente"
+      },
+      "description": {
+        "en": "Heats the water to the comfort temperature for a while (30 minutes on most appliances), then follows the schedule again.",
+        "fr": "Chauffe l’eau à la température confort pendant un temps (30 minutes sur la plupart des générateurs), puis reprend le programme.",
+        "de": "Erwärmt das Wasser eine Zeit lang auf die Komforttemperatur (bei den meisten Geräten 30 Minuten) und folgt dann wieder dem Programm.",
+        "es": "Calienta el agua a la temperatura confort durante un tiempo (30 minutos en la mayoría de los equipos) y luego vuelve al programa."
+      },
+      "fields": [
+        {
+          "key": "zone",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Hot water",
+            "fr": "Eau chaude",
+            "de": "Warmwasser",
+            "es": "Agua caliente"
+          },
+          "description": {
+            "en": "Empty: every hot water zone with a boost.",
+            "fr": "Vide : toutes les eaux chaudes qui ont un boost.",
+            "de": "Leer: alle Warmwasserzonen mit Boost.",
+            "es": "Vacío: todas las zonas de agua caliente con boost."
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "key": "count",
+          "type": "number",
+          "label": {
+            "en": "Boosts started",
+            "fr": "Boosts lancés",
+            "de": "Gestartete Boosts",
+            "es": "Boosts iniciados"
+          }
+        },
+        {
+          "key": "failed",
+          "type": "number",
+          "label": {
+            "en": "Boosts refused",
+            "fr": "Boosts refusés",
+            "de": "Abgelehnte Boosts",
+            "es": "Boosts rechazados"
+          }
+        }
+      ]
+    },
+    {
+      "key": "refresh",
+      "timeout_seconds": 60,
+      "label": {
+        "en": "Read Remeha Home now",
+        "fr": "Relever Remeha Home maintenant",
+        "de": "Remeha Home jetzt abfragen",
+        "es": "Leer Remeha Home ahora"
+      },
+      "description": {
+        "en": "Reads every zone now instead of waiting for the next reading (once per 30 seconds at most).",
+        "fr": "Relève toutes les zones maintenant au lieu d’attendre le prochain relevé (une fois par 30 secondes au plus).",
+        "de": "Fragt alle Zonen jetzt ab, statt auf die nächste Abfrage zu warten (höchstens alle 30 Sekunden).",
+        "es": "Lee todas las zonas ahora en lugar de esperar a la próxima lectura (una vez cada 30 segundos como máximo)."
+      },
+      "outputs": [
+        {
+          "key": "zones",
+          "type": "number",
+          "label": {
+            "en": "Climate zones",
+            "fr": "Zones de chauffage",
+            "de": "Heizzonen",
+            "es": "Zonas de calefacción"
+          }
+        },
+        {
+          "key": "pressure",
+          "type": "number",
+          "label": {
+            "en": "Water pressure (bar)",
+            "fr": "Pression d’eau (bar)",
+            "de": "Wasserdruck (bar)",
+            "es": "Presión del agua (bar)"
+          }
+        },
+        {
+          "key": "outdoor_temperature",
+          "type": "number",
+          "label": {
+            "en": "Outdoor temperature (°C)",
+            "fr": "Température extérieure (°C)",
+            "de": "Außentemperatur (°C)",
+            "es": "Temperatura exterior (°C)"
+          }
+        },
+        {
+          "key": "energy_today",
+          "type": "number",
+          "label": {
+            "en": "Energy today (kWh)",
+            "fr": "Énergie aujourd’hui (kWh)",
+            "de": "Energie heute (kWh)",
+            "es": "Energía hoy (kWh)"
+          }
+        }
+      ]
+    }
+  ]
+}

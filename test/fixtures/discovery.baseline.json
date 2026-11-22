@@ -1,0 +1,536 @@
+{
+  "devices": {
+    "zone": {
+      "external_id": "ext:test-integration:zone:00000000-0000-0000-0000-00000000c001",
+      "should_poll": false,
+      "params": ["REMEHA_KIND", "REMEHA_APPLIANCE"],
+      "features": [
+        {
+          "external_id": "ext:test-integration:zone:00000000-0000-0000-0000-00000000c001:mode",
+          "category": "thermostat",
+          "type": "mode",
+          "min": 0,
+          "max": 3,
+          "read_only": false,
+          "has_feedback": true,
+          "supported_options": [3, 1, 0]
+        },
+        {
+          "external_id": "ext:test-integration:zone:00000000-0000-0000-0000-00000000c001:target_temperature",
+          "category": "thermostat",
+          "type": "target-temperature",
+          "unit": "celsius",
+          "min": 5,
+          "max": 30,
+          "step": 0.5,
+          "read_only": false,
+          "has_feedback": true,
+          "supported_options": []
+        },
+        {
+          "external_id": "ext:test-integration:zone:00000000-0000-0000-0000-00000000c001:operating_state",
+          "category": "thermostat",
+          "type": "operating-state",
+          "min": 0,
+          "max": 2,
+          "read_only": true,
+          "has_feedback": false,
+          "supported_options": []
+        },
+        {
+          "external_id": "ext:test-integration:zone:00000000-0000-0000-0000-00000000c001:temperature",
+          "category": "temperature-sensor",
+          "type": "decimal",
+          "unit": "celsius",
+          "min": -20,
+          "max": 60,
+          "read_only": true,
+          "has_feedback": false,
+          "supported_options": []
+        },
+        {
+          "external_id": "ext:test-integration:zone:00000000-0000-0000-0000-00000000c001:fireplace",
+          "category": "switch",
+          "type": "binary",
+          "min": 0,
+          "max": 1,
+          "read_only": false,
+          "has_feedback": true,
+          "supported_options": []
+        }
+      ]
+    },
+    "zone_without_fireplace": {
+      "external_id": "ext:test-integration:zone:00000000-0000-0000-0000-00000000c002",
+      "should_poll": false,
+      "params": ["REMEHA_KIND", "REMEHA_APPLIANCE"],
+      "features": [
+        {
+          "external_id": "ext:test-integration:zone:00000000-0000-0000-0000-00000000c002:mode",
+          "category": "thermostat",
+          "type": "mode",
+          "min": 0,
+          "max": 3,
+          "read_only": false,
+          "has_feedback": true,
+          "supported_options": [3, 1, 0]
+        },
+        {
+          "external_id": "ext:test-integration:zone:00000000-0000-0000-0000-00000000c002:target_temperature",
+          "category": "thermostat",
+          "type": "target-temperature",
+          "unit": "celsius",
+          "min": 5,
+          "max": 28,
+          "step": 0.5,
+          "read_only": false,
+          "has_feedback": true,
+          "supported_options": []
+        },
+        {
+          "external_id": "ext:test-integration:zone:00000000-0000-0000-0000-00000000c002:operating_state",
+          "category": "thermostat",
+          "type": "operating-state",
+          "min": 0,
+          "max": 2,
+          "read_only": true,
+          "has_feedback": false,
+          "supported_options": []
+        },
+        {
+          "external_id": "ext:test-integration:zone:00000000-0000-0000-0000-00000000c002:temperature",
+          "category": "temperature-sensor",
+          "type": "decimal",
+          "unit": "celsius",
+          "min": -20,
+          "max": 60,
+          "read_only": true,
+          "has_feedback": false,
+          "supported_options": []
+        }
+      ]
+    },
+    "hot_water_tank": {
+      "external_id": "ext:test-integration:hot_water:00000000-0000-0000-0000-00000000d001",
+      "should_poll": false,
+      "params": ["REMEHA_KIND", "REMEHA_APPLIANCE", "REMEHA_DHW_TYPE"],
+      "features": [
+        {
+          "external_id": "ext:test-integration:hot_water:00000000-0000-0000-0000-00000000d001:mode",
+          "category": "water-heater",
+          "type": "mode",
+          "min": 0,
+          "max": 6,
+          "read_only": false,
+          "has_feedback": true,
+          "supported_options": [6, 4, 2, 3]
+        },
+        {
+          "external_id": "ext:test-integration:hot_water:00000000-0000-0000-0000-00000000d001:target_temperature",
+          "category": "water-heater",
+          "type": "target-temperature",
+          "unit": "celsius",
+          "min": 40,
+          "max": 65,
+          "step": 1,
+          "read_only": false,
+          "has_feedback": true,
+          "supported_options": []
+        },
+        {
+          "external_id": "ext:test-integration:hot_water:00000000-0000-0000-0000-00000000d001:heating",
+          "category": "water-heater",
+          "type": "heating",
+          "min": 0,
+          "max": 1,
+          "read_only": true,
+          "has_feedback": false,
+          "supported_options": []
+        },
+        {
+          "external_id": "ext:test-integration:hot_water:00000000-0000-0000-0000-00000000d001:temperature",
+          "category": "temperature-sensor",
+          "type": "decimal",
+          "unit": "celsius",
+          "min": 0,
+          "max": 100,
+          "read_only": true,
+          "has_feedback": false,
+          "supported_options": []
+        }
+      ]
+    },
+    "hot_water_combi": {
+      "external_id": "ext:test-integration:hot_water:00000000-0000-0000-0000-00000000d001",
+      "should_poll": false,
+      "params": ["REMEHA_KIND", "REMEHA_APPLIANCE", "REMEHA_DHW_TYPE"],
+      "features": [
+        {
+          "external_id": "ext:test-integration:hot_water:00000000-0000-0000-0000-00000000d001:mode",
+          "category": "water-heater",
+          "type": "mode",
+          "min": 0,
+          "max": 6,
+          "read_only": false,
+          "has_feedback": true,
+          "supported_options": [6, 4, 2]
+        },
+        {
+          "external_id": "ext:test-integration:hot_water:00000000-0000-0000-0000-00000000d001:target_temperature",
+          "category": "water-heater",
+          "type": "target-temperature",
+          "unit": "celsius",
+          "min": 40,
+          "max": 65,
+          "step": 1,
+          "read_only": false,
+          "has_feedback": true,
+          "supported_options": []
+        },
+        {
+          "external_id": "ext:test-integration:hot_water:00000000-0000-0000-0000-00000000d001:heating",
+          "category": "water-heater",
+          "type": "heating",
+          "min": 0,
+          "max": 1,
+          "read_only": true,
+          "has_feedback": false,
+          "supported_options": []
+        }
+      ]
+    },
+    "appliance": {
+      "external_id": "ext:test-integration:appliance:00000000-0000-0000-0000-00000000a001",
+      "should_poll": false,
+      "params": ["REMEHA_KIND", "REMEHA_TYPE"],
+      "features": [
+        {
+          "external_id": "ext:test-integration:appliance:00000000-0000-0000-0000-00000000a001:pressure",
+          "category": "pressure-sensor",
+          "type": "decimal",
+          "unit": "bar",
+          "min": 0,
+          "max": 6,
+          "read_only": true,
+          "has_feedback": false,
+          "supported_options": []
+        },
+        {
+          "external_id": "ext:test-integration:appliance:00000000-0000-0000-0000-00000000a001:outdoor_temperature",
+          "category": "temperature-sensor",
+          "type": "decimal",
+          "unit": "celsius",
+          "min": -50,
+          "max": 60,
+          "read_only": true,
+          "has_feedback": false,
+          "supported_options": []
+        },
+        {
+          "external_id": "ext:test-integration:appliance:00000000-0000-0000-0000-00000000a001:energy",
+          "category": "energy-sensor",
+          "type": "index",
+          "unit": "kilowatt-hour",
+          "min": 0,
+          "max": 10000000,
+          "read_only": true,
+          "has_feedback": false,
+          "supported_options": []
+        }
+      ]
+    }
+  },
+  "manifest": {
+    "config_schema": [
+      {
+        "key": "intro",
+        "type": "section"
+      },
+      {
+        "key": "email",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "type": "secret"
+      },
+      {
+        "key": "refresh_minutes",
+        "type": "select"
+      },
+      {
+        "key": "language",
+        "type": "select"
+      }
+    ],
+    "config_options": {
+      "refresh_minutes": ["1", "2", "5", "10"],
+      "language": ["auto", "en", "fr", "de", "es"]
+    },
+    "actions": ["test_connection"],
+    "widgets": [
+      {
+        "key": "zones",
+        "settings": ["devices"]
+      },
+      {
+        "key": "energy",
+        "settings": ["devices"]
+      },
+      {
+        "key": "status",
+        "settings": ["device"]
+      }
+    ],
+    "widget_actions": ["all_schedule", "boost", "refresh"],
+    "scene_triggers": [
+      {
+        "key": "appliance_fault",
+        "fields": [
+          {
+            "key": "device",
+            "options": []
+          }
+        ],
+        "variables": [
+          {
+            "key": "device",
+            "type": "string"
+          },
+          {
+            "key": "device_name",
+            "type": "string"
+          },
+          {
+            "key": "status",
+            "type": "string"
+          },
+          {
+            "key": "previous_status",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "key": "appliance_recovered",
+        "fields": [
+          {
+            "key": "device",
+            "options": []
+          }
+        ],
+        "variables": [
+          {
+            "key": "device",
+            "type": "string"
+          },
+          {
+            "key": "device_name",
+            "type": "string"
+          },
+          {
+            "key": "status",
+            "type": "string"
+          },
+          {
+            "key": "previous_status",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "key": "water_pressure_low",
+        "fields": [
+          {
+            "key": "device",
+            "options": []
+          }
+        ],
+        "variables": [
+          {
+            "key": "device",
+            "type": "string"
+          },
+          {
+            "key": "device_name",
+            "type": "string"
+          },
+          {
+            "key": "pressure",
+            "type": "number"
+          }
+        ]
+      },
+      {
+        "key": "connection_changed",
+        "fields": [
+          {
+            "key": "device",
+            "options": []
+          },
+          {
+            "key": "state",
+            "options": ["offline", "online"]
+          }
+        ],
+        "variables": [
+          {
+            "key": "device",
+            "type": "string"
+          },
+          {
+            "key": "device_name",
+            "type": "string"
+          },
+          {
+            "key": "state",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "key": "holiday_changed",
+        "fields": [
+          {
+            "key": "device",
+            "options": []
+          },
+          {
+            "key": "state",
+            "options": ["started", "ended"]
+          }
+        ],
+        "variables": [
+          {
+            "key": "device",
+            "type": "string"
+          },
+          {
+            "key": "device_name",
+            "type": "string"
+          },
+          {
+            "key": "state",
+            "type": "string"
+          },
+          {
+            "key": "end",
+            "type": "string"
+          }
+        ]
+      }
+    ],
+    "scene_actions": [
+      {
+        "key": "set_temporary",
+        "fields": [
+          {
+            "key": "zone",
+            "options": []
+          },
+          {
+            "key": "temperature",
+            "options": []
+          },
+          {
+            "key": "minutes",
+            "options": []
+          }
+        ],
+        "outputs": [
+          {
+            "key": "end",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "key": "set_clock_program",
+        "fields": [
+          {
+            "key": "zone",
+            "options": []
+          },
+          {
+            "key": "program",
+            "options": ["1", "2", "3"]
+          }
+        ],
+        "outputs": [
+          {
+            "key": "count",
+            "type": "number"
+          },
+          {
+            "key": "failed",
+            "type": "number"
+          }
+        ]
+      },
+      {
+        "key": "set_holiday",
+        "fields": [
+          {
+            "key": "appliance",
+            "options": []
+          },
+          {
+            "key": "days",
+            "options": []
+          }
+        ],
+        "outputs": [
+          {
+            "key": "count",
+            "type": "number"
+          },
+          {
+            "key": "until",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "key": "hot_water_boost",
+        "fields": [
+          {
+            "key": "zone",
+            "options": []
+          }
+        ],
+        "outputs": [
+          {
+            "key": "count",
+            "type": "number"
+          },
+          {
+            "key": "failed",
+            "type": "number"
+          }
+        ]
+      },
+      {
+        "key": "refresh",
+        "fields": [],
+        "outputs": [
+          {
+            "key": "zones",
+            "type": "number"
+          },
+          {
+            "key": "pressure",
+            "type": "number"
+          },
+          {
+            "key": "outdoor_temperature",
+            "type": "number"
+          },
+          {
+            "key": "energy_today",
+            "type": "number"
+          }
+        ]
+      }
+    ]
+  }
+}

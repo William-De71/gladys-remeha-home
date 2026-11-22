@@ -1,0 +1,25 @@
+Gladys Remeha Home integration
+Copyright 2026 William Deren
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+It calls the cloud service behind the Remeha Home app (BDR Thermea:
+https://api.bdrthermea.net and its login https://remehalogin.bdrthermea.net)
+with the e-mail and the password of the user's Remeha Home account, the way
+the app does. BDR Thermea publishes no documentation for it. Remeha, Baxi,
+De Dietrich and Brötje are trademarks of the BDR Thermea Group; this
+integration is not affiliated with nor endorsed by BDR Thermea.
+
+Protocol knowledge
+------------------
+The login flow, the routes, the fields of the answers and their quirks (local
+times written with a Z, the daily energy) come from the community integration
+"Remeha Home" for Home Assistant and its documentation of the API:
+  - remeha_home by msvisser (https://github.com/msvisser/remeha_home);
+  - its maintained fork by hugo-leij
+    (https://github.com/hugo-leij/remeha_home), documentation/api.md.
+These projects carry no license file: only facts about the service were taken
+from them (endpoints, field names, measured behaviour), never code. The answers
+to wrong credentials, to a refused token and to a refused refresh token were
+checked against the service itself. This integration is an independent
+JavaScript implementation.
