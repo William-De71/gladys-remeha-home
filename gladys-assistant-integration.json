@@ -8,8 +8,8 @@
     "de": "Remeha-Home-Heizung: Zonen, Warmwasser, Boost, Urlaub, Druck, Energie, Szenen, Widgets.",
     "es": "Calefacción Remeha Home: zonas, agua caliente, boost, vacaciones, presión, energía, escenas."
   },
-  "version": "0.1.0",
-  "docker_image": "ghcr.io/william-de71/gladys-remeha-home:0.1.0",
+  "version": "0.1.1",
+  "docker_image": "ghcr.io/william-de71/gladys-remeha-home:0.1.1",
   "gladys_version": ">=5.3.0",
   "categories": ["climate", "energy"],
   "keywords": [

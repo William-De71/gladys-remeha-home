@@ -5,6 +5,10 @@ follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions
 follow [Semantic Versioning](https://semver.org/). This file is generated at
 each release from the Conventional Commits: do not edit it by hand.
 
+## [0.1.1] - 2026-11-24
+
+- Maintenance release.
+
 ## [0.1.0] - 2026-11-22
 
 ### Added
@@ -19,4 +23,5 @@ each release from the Conventional Commits: do not edit it by hand.
 - Dashboard widgets: the zones and the hot water ("Back to schedule" and "Hot water boost"), the energy of the last 7 days by use, and the appliance (pressure, outdoor temperature, connection, status, holiday).
 - English, French, German and Spanish everywhere: settings, devices, widgets, scenes and documentation.
 
+[0.1.1]: https://github.com/William-De71/gladys-remeha-home/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/William-De71/gladys-remeha-home/releases/tag/v0.1.0
